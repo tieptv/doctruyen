@@ -1,0 +1,9 @@
+E:\C#\truyen\bin\Debug\truyen.exe.config
+E:\C#\truyen\obj\Debug\truyen.csprojResolveAssemblyReference.cache
+E:\C#\truyen\obj\Debug\truyen.Form1.resources
+E:\C#\truyen\obj\Debug\truyen.Properties.Resources.resources
+E:\C#\truyen\obj\Debug\truyen.csproj.GenerateResource.Cache
+E:\C#\truyen\bin\Debug\truyen.exe
+E:\C#\truyen\bin\Debug\truyen.pdb
+E:\C#\truyen\obj\Debug\truyen.exe
+E:\C#\truyen\obj\Debug\truyen.pdb
