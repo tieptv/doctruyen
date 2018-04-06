@@ -56,8 +56,11 @@ namespace truyen
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {  con=new SqlConnection(@"Data Source=DESKTOP-MI7H9MA\SQLEXPRESS;Initial Catalog=OOP;Persist Security Info=True;User ID=sa;Password=123");
-           adapter=new SqlDataAdapter("select * from thandieu",con);
+        {
+            connect cn = new connect();
+            con = cn.conDB();
+            String sql = "select * from " + trangdau.story.ten;
+           adapter=new SqlDataAdapter(sql,con);
            table=new DataTable();
            adapter.Fill(table);
             source=new BindingSource();
