@@ -12,10 +12,28 @@ namespace truyen
 {
     class search
     {
-        public String[] Search(String key, BindingSource source)
+        public int Search(String key, BindingSource source)
         {
-            String[] s = {"abc"};
-            return s;
+            string[] separators = { ",", ".", "!", "?", ";", ":", " " };
+            String[] words = key.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            foreach(DataRow dr in source)
+            {
+                String noiDung = dr["noidung"].ToString();
+                bool flag = true;
+                foreach (String word in words)
+                {
+                    if (!noiDung.Contains(word))
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag == true)
+                {
+                    return Int32.Parse(dr["id"].ToString());
+                }
+            }
+            return -1;
         }
 
 
