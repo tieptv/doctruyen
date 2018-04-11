@@ -36,12 +36,13 @@
             this.so = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.list = new System.Windows.Forms.ListView();
-            this.Chương = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chapter = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.content = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.noidung = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.noidung = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -50,7 +51,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(726, 23);
+            this.button1.Location = new System.Drawing.Point(726, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -138,28 +139,49 @@
             this.list.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Chương});
-            this.list.Location = new System.Drawing.Point(3, 139);
+            this.chapter,
+            this.content});
+            this.list.Location = new System.Drawing.Point(3, 136);
             this.list.Name = "list";
             this.list.Size = new System.Drawing.Size(202, 290);
             this.list.TabIndex = 5;
+            this.list.TileSize = new System.Drawing.Size(25, 75);
             this.list.UseCompatibleStateImageBehavior = false;
-            this.list.View = System.Windows.Forms.View.Details;
+            this.list.View = System.Windows.Forms.View.List;
             this.list.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.list_ItemSelectionChanged);
+            this.list.SelectedIndexChanged += new System.EventHandler(this.list_SelectedIndexChanged);
             // 
-            // Chương
+            // chapter
             // 
-            this.Chương.Text = "Kết quả";
+            this.chapter.Text = "Chương";
+            // 
+            // content
+            // 
+            this.content.Text = "Nội Dung";
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.noidung);
             this.panel2.Location = new System.Drawing.Point(299, 117);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(583, 453);
             this.panel2.TabIndex = 8;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_1);
+            // 
+            // noidung
+            // 
+            this.noidung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.noidung.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noidung.Location = new System.Drawing.Point(0, 0);
+            this.noidung.Name = "noidung";
+            this.noidung.ReadOnly = true;
+            this.noidung.Size = new System.Drawing.Size(583, 453);
+            this.noidung.TabIndex = 5;
+            this.noidung.Text = "";
+            this.noidung.TextChanged += new System.EventHandler(this.noidung_TextChanged);
             // 
             // panel3
             // 
@@ -186,22 +208,14 @@
             // 
             this.searchBox.Location = new System.Drawing.Point(80, 110);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(186, 20);
+            this.searchBox.Size = new System.Drawing.Size(113, 20);
             this.searchBox.TabIndex = 7;
             this.searchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
-            // noidung
-            // 
-            this.noidung.Location = new System.Drawing.Point(22, 13);
-            this.noidung.Name = "noidung";
-            this.noidung.Size = new System.Drawing.Size(546, 428);
-            this.noidung.TabIndex = 5;
-            this.noidung.Text = "";
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Turquoise;
             this.ClientSize = new System.Drawing.Size(930, 570);
             this.Controls.Add(this.panel3);
@@ -217,6 +231,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -230,12 +245,13 @@
         private System.Windows.Forms.Label so;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView list;
-        private System.Windows.Forms.ColumnHeader Chương;
+        private System.Windows.Forms.ColumnHeader chapter;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.RichTextBox noidung;
+        private System.Windows.Forms.ColumnHeader content;
     }
 }
 
