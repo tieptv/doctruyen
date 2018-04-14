@@ -46,13 +46,19 @@ namespace truyen
         private void button2_Click(object sender, EventArgs e)
         {
             source.MovePrevious();
+            noidung.SelectionStart = 0;
+            noidung.ScrollToCaret();
             showrecord();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             source.MoveNext();
+            noidung.SelectionStart = 0;
+            noidung.ScrollToCaret();
             showrecord();
+           
 
         }
 
