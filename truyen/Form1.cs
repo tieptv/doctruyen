@@ -24,6 +24,7 @@ namespace truyen
         DataTable table;
        BindingSource source;
        List<rule> luat = new List<rule>();
+       List<String> chapter = new List<String>();
         private void connect()
         { 
 
@@ -74,7 +75,13 @@ namespace truyen
            adapter.Fill(table);
             source=new BindingSource();
          foreach(DataRow tiep in table.Rows)
+             {
              source.Add(tiep);
+             String ch = "Chương " + tiep["id"].ToString() + " : " + tiep["ten"];
+             chapter.Add(ch);
+             }
+         foreach (String chap in chapter) ds_chuong.Items.Add(chap);
+
          showrecord();
         }
         private void showrecord(){
@@ -141,23 +148,41 @@ namespace truyen
 
         private void search_Click(object sender, EventArgs e)
         {
+           // int chapter=9;
             //set cho listview
-            list.Items.Clear();
-            String cau = searchBox.Text;
-            search s = new search();
-            int ch = s.Search(cau, source);
-            list.Items.Add(ch.ToString());
+         //   list.Items.Clear();
+         //   String cau = searchBox.Text;
+           // search s = new search();
+          //  String ch = s.Search(cau, source, out chapter);
+          //  ListViewItem k = new ListViewItem(chapter.ToString());
+          //  ListViewItem.ListViewSubItem k1 = new ListViewItem.ListViewSubItem(k, "20.000 sinh viên");
+          //  k.SubItems.Add(k1);
+          //  list.Items.Add(k);
+            
 
         }
 
-        private void noidung_TextChanged(object sender, EventArgs e)
+      
+       
+
+        private void ds_chuong_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void list_SelectedIndexChanged(object sender, EventArgs e)
+        private void ds_chuong_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-
+            var item = e.Item;
+            for (int i = 0; i < ds_chuong.Items.Count; i++)
+            {
+                if (ds_chuong.Items[i].Selected)
+                {
+                    source.Position = i;
+                    showrecord();
+                    break;
+                }
+            }
+           
         }
 
 
