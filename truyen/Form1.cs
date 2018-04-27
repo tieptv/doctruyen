@@ -19,6 +19,7 @@ namespace truyen
         {
             InitializeComponent();
         }
+        float size;
        SqlConnection con;
         SqlDataAdapter adapter;
         DataTable table;
@@ -65,6 +66,16 @@ namespace truyen
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //set dữ liệu cho combobox
+            for (int i = 8; i <= 72; i++) textSize.Items.Add(i.ToString());
+            //-----------Tạo danh sách font chữ
+            System.Drawing.Text.InstalledFontCollection fonts = new System.Drawing.Text.InstalledFontCollection();
+            foreach (FontFamily family in fonts.Families)
+            {
+                textFont.Items.Add(family.Name.ToString());
+            }
+            //hoàn tất set dữ liệu
+            Dinhdang();
             Luat ad = new Luat();
             luat=ad.add();
             connect cn = new connect();
@@ -83,6 +94,7 @@ namespace truyen
          foreach (String chap in chapter) ds_chuong.Items.Add(chap);
 
          showrecord();
+        
         }
         private void showrecord(){
         Luat l = new Luat();
@@ -183,6 +195,60 @@ namespace truyen
                 }
             }
            
+        }
+
+        private void noidung_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           // if (size == 2.0f)
+            //{
+              //  noidung.ZoomFactor = 2.0f;
+                //}
+            //else {
+            
+            //noidung.ZoomFactor = size + 0.1f ;
+//}
+        }
+
+        private void subzoom_Click(object sender, EventArgs e)
+        {
+            //if (size == 1.0f) noidung.ZoomFactor = 1.0f;
+            //else 
+            //noidung.ZoomFactor = size - 0.1f;
+        }
+        void Dinhdang()
+        {
+            float fsize = 14;//Kích thước mặc định
+            if (textSize.SelectedIndex != -1)
+                fsize = (float)float.Parse(textSize.SelectedItem.ToString());
+            string fname = "Segoe UI";//Font thước mặc định
+            if (textFont.SelectedIndex != -1)
+                fname = textFont.SelectedItem.ToString();
+            try
+            {
+                Font f = new Font(new FontFamily(fname), fsize);
+                noidung.Font = f;
+            }
+            catch
+            {
+                MessageBox.Show("Font này không hỗ trợ kiểu hiển thị hiện tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void textSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dinhdang();
+
+        }
+
+        private void textFont_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dinhdang();
         }
 
 
