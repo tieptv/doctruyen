@@ -19,8 +19,8 @@ namespace truyen
         {
             InitializeComponent();
         }
+        int zoom=1;
         int lamp = 0;
-        float size;
        SqlConnection con;
         SqlDataAdapter adapter;
         DataTable table;
@@ -195,11 +195,6 @@ namespace truyen
                     break;
                 }
             }
-           
-        }
-
-        private void noidung_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -279,6 +274,19 @@ namespace truyen
         {
             Dinhdang();
         }
+
+        private void noidung_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (zoom==1)
+                {noidung.ZoomFactor = 2.0f;
+                zoom = -1;
+                }
+            else {
+                noidung.ZoomFactor = 1.0f;
+                zoom = 1;
+            }
+        }
+
 
 
       

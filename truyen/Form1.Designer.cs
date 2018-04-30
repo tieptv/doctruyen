@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -161,7 +161,7 @@
             this.noidung.Size = new System.Drawing.Size(690, 443);
             this.noidung.TabIndex = 9;
             this.noidung.Text = "";
-            this.noidung.TextChanged += new System.EventHandler(this.noidung_TextChanged);
+            this.noidung.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.noidung_MouseDoubleClick);
             // 
             // list
             // 
@@ -172,8 +172,8 @@
             this.columnHeader1,
             this.columnHeader2});
             this.list.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.list.Location = new System.Drawing.Point(23, 52);
             this.list.Name = "list";
             this.list.Size = new System.Drawing.Size(235, 342);
