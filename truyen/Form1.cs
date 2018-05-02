@@ -201,44 +201,24 @@ namespace truyen
         private void button4_Click(object sender, EventArgs e)
         {
              if(lamp==0){
-               this.button1.BackColor = Color.Black;
-               this.button2.BackColor = Color.Black;
-               this.button3.BackColor = Color.Black;
-               this.label1.BackColor = Color.Black;
-               this.label1.ForeColor = Color.Black;
-               this.ds_chuong.BackColor = Color.Black;
-               this.tabControl1.TabPages[0].BackColor = Color.Black;
-               this.tabControl1.TabPages[1].BackColor = Color.Black;
-               this.tabControl1.TabPages[2].BackColor = Color.Black;
-               this.BackColor = Color.Black;
-               this.textFont.BackColor = Color.Black;
-               this.textSize.BackColor = Color.Black;
-               this.searchBox.BackColor = Color.Black;
-               this.list.BackColor = Color.Black;
+                 this.BackColor = Color.Black;
+                 this.button1.Visible = false;
+                 this.button2.Visible = false;
+                 this.button3.Visible = false;
+                 this.tabControl1.Visible = false;
+                 this.label1.Visible = false;
                this.den.Text = "Bật đèn";
                lamp = 1;
              }
              else {
-                 this.button1.BackColor = Color.Thistle;
-                 this.button2.BackColor = Color.Thistle;
-                 this.button3.BackColor = Color.Thistle;
-                 this.label1.BackColor = Color.Snow;
-                 this.label1.ForeColor = Color.Tomato;
-                 this.ds_chuong.BackColor = Color.WhiteSmoke;
-                 this.tabControl1.TabPages[0].BackColor = Color.White;
-                 this.tabControl1.TabPages[1].BackColor = Color.White;
-                 this.tabControl1.TabPages[2].BackColor = Color.White;
-                 this.BackColor = Color.Thistle;
-                 this.textFont.BackColor = Color.White;
-                 this.textSize.BackColor = Color.White;
-                 this.searchBox.BackColor = Color.White;
-                 this.list.BackColor = Color.WhiteSmoke;
+                 this.BackColor = Color.Aqua;
+                 this.button1.Visible = true;
+                 this.button2.Visible = true;
+                 this.button3.Visible = true;
+                 this.tabControl1.Visible = true;
+                 this.label1.Visible = true;
                  this.den.Text = "Tắt đèn";
                  lamp = 0;
-             
-             
-             
-             
                  }
              
         }
