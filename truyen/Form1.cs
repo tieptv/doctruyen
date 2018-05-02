@@ -202,6 +202,8 @@ namespace truyen
         {
              if(lamp==0){
                  this.BackColor = Color.Black;
+                 this.noidung.BackColor = Color.Black;
+                 this.noidung.ForeColor = Color.White;
                  this.button1.Visible = false;
                  this.button2.Visible = false;
                  this.button3.Visible = false;
@@ -212,6 +214,8 @@ namespace truyen
              }
              else {
                  this.BackColor = Color.Aqua;
+                 this.noidung.BackColor = Color.White;
+                 this.noidung.ForeColor = Color.Black;
                  this.button1.Visible = true;
                  this.button2.Visible = true;
                  this.button3.Visible = true;
