@@ -21,6 +21,7 @@ namespace truyen
         }
         int zoom=1;
         int lamp = 0;
+        music mc = new music();
        SqlConnection con;
         SqlDataAdapter adapter;
         DataTable table;
@@ -76,6 +77,10 @@ namespace truyen
                 textFont.Items.Add(family.Name.ToString());
             }
             //hoàn tất set dữ liệu
+           
+            mc.OpenMediaFile("thandieu.mp3");
+            mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
+          //  mc.ClosePlayer();
             Dinhdang();
             Luat ad = new Luat();
             luat=ad.add();
@@ -268,6 +273,19 @@ namespace truyen
             else {
                 noidung.ZoomFactor = 1.0f;
                 zoom = 1;
+            }
+        }
+
+        private void button_music_Click(object sender, EventArgs e)
+        {
+            if (button_music.Text.Equals("Tắt nhạc"))
+            {  mc.ClosePlayer();
+            button_music.Text = "Bật nhạc";
+            }
+            else {
+            mc.OpenMediaFile("thandieu.mp3");
+            mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
+            button_music.Text = "Tắt nhạc";
             }
         }
 

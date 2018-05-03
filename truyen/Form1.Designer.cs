@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,6 +53,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.den = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button_music = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -172,8 +174,8 @@
             this.columnHeader1,
             this.columnHeader2});
             this.list.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6});
+            listViewItem3,
+            listViewItem4});
             this.list.Location = new System.Drawing.Point(23, 52);
             this.list.Name = "list";
             this.list.Size = new System.Drawing.Size(235, 342);
@@ -243,6 +245,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button_music);
+            this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.textFont);
             this.tabPage3.Controls.Add(this.textSize);
             this.tabPage3.Controls.Add(this.label4);
@@ -303,6 +307,25 @@
             this.den.UseVisualStyleBackColor = true;
             this.den.Click += new System.EventHandler(this.button4_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 134);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Music:";
+            // 
+            // button_music
+            // 
+            this.button_music.Location = new System.Drawing.Point(135, 131);
+            this.button_music.Name = "button_music";
+            this.button_music.Size = new System.Drawing.Size(75, 23);
+            this.button_music.TabIndex = 20;
+            this.button_music.Text = "Tắt nhạc";
+            this.button_music.UseVisualStyleBackColor = true;
+            this.button_music.Click += new System.EventHandler(this.button_music_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -359,6 +382,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button button_music;
+        private System.Windows.Forms.Label label5;
     }
 }
 
