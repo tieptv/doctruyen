@@ -158,15 +158,14 @@ namespace truyen
 
         }
 
-        public ArrayList<SearchResult> Search(String key, BindingSource source)
+        public ArrayList Search(String key, BindingSource source)
         {
             string[] separators = { ",", ".", "!", "?", ";", ":", " ", "\t", "\n" };
             String[] words = key.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            ArrayList<SearchResult> search_result = new ArrayList<SearchResult>();
+            ArrayList search_result = new ArrayList();
             foreach (DataRow dr in source)
             {
                 String noiDung = dr["noidung"].ToString();
-                bool flag = true;
                 int count = 0;
                 foreach (String word in words)
                 {
@@ -177,8 +176,9 @@ namespace truyen
                 }
                 if (count >= 0.8 * words.Length)
                 {
-                    chapter = Int32.Parse(dr["id"].ToString());
+                    int chapter = Int32.Parse(dr["id"].ToString());
                     search_result.Add( new SearchResult( FindBest(noiDung, words), chapter, min_best, S_best));
+                    
                 }
             }
 
@@ -192,10 +192,10 @@ namespace truyen
 
     public class SearchResult
     {
-        public String phrase { get;}
-        public int chapter { get;}
-        public int indexInChapter { get;}
-        public int length { get;}
+        public String phrase { get; set; }
+        public int chapter { get; set; }
+        public int indexInChapter { get; set; }
+        public int length { get; set; }
         
 
         public SearchResult(String phrase, int chapter, int indexInChapter, int length)
