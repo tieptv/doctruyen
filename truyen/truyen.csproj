@@ -93,10 +93,27 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\thầnđiêu.jpg" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Resources\anh_hung_xa_dieu.jpg" />
+    <Content Include="Resources\bach_ma_kieu_tay_phong.jpg" />
+    <Content Include="Resources\bich_huyet_kiem.jpg" />
+    <Content Include="Resources\co_gai_do_long.jpg" />
+    <Content Include="Resources\hac_thanh_than_tieu.jpg" />
+    <Content Include="Resources\hiep_khach_hanh.jpeg" />
+    <Content Include="Resources\lien_thanh_quyet.jpg" />
+    <Content Include="Resources\loc_dinh_ky.jpg" />
+    <Content Include="Resources\luc_mach_than_kiem.jpg" />
+    <Content Include="Resources\phi_ho_ngoai_truyen.jpg" />
+    <Content Include="Resources\song_nu_hiep_hong_y.jpg" />
     <Content Include="Resources\thandieu.mp3" />
+    <Content Include="Resources\thien_long_bat_bo.jpg" />
+    <Content Include="Resources\thu_kiem_an_cuu_luc.jpg" />
+    <Content Include="Resources\thầnđiêu.jpg" />
+    <Content Include="Resources\tieu_ngao+giang_ho.jpg" />
+    <Content Include="Resources\tuyet_son_phi_ho.jpg" />
+    <Content Include="Resources\uyên_ương_đao.jpg" />
+    <Content Include="Resources\viet-nu_kiem.jpg" />
+    <Content Include="Resources\vo_lam_ng_ba.jpg" />
+    <Content Include="Resources\y_thien_do_long_ky.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
