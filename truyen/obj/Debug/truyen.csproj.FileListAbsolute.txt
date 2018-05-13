@@ -17,3 +17,11 @@ E:\doctruyen\truyen\obj\Debug\truyen.Form1.resources
 E:\doctruyen\truyen\obj\Debug\truyen.Properties.Resources.resources
 E:\doctruyen\truyen\obj\Debug\truyen.trangdau.resources
 E:\doctruyen\truyen\obj\Debug\truyen.csproj.GenerateResource.Cache
+E:\Kim Dung\doctruyen\truyen\bin\Debug\truyen.exe.config
+E:\Kim Dung\doctruyen\truyen\obj\Debug\truyen.exe
+E:\Kim Dung\doctruyen\truyen\obj\Debug\truyen.pdb
+E:\Kim Dung\doctruyen\truyen\obj\Debug\truyen.csprojResolveAssemblyReference.cache
+E:\Kim Dung\doctruyen\truyen\obj\Debug\truyen.Form1.resources
+E:\Kim Dung\doctruyen\truyen\obj\Debug\truyen.Properties.Resources.resources
+E:\Kim Dung\doctruyen\truyen\obj\Debug\truyen.trangdau.resources
+E:\Kim Dung\doctruyen\truyen\obj\Debug\truyen.csproj.GenerateResource.Cache
