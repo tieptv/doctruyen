@@ -218,9 +218,9 @@ namespace truyen
             SearchResult Y = (SearchResult)y;
 
             if (X.length != Y.length)
-                return Y.length - X.length;
+                return X.length - Y.length;
             else
-                return Y.chapter - X.chapter;
+                return X.chapter - Y.chapter;
         }
     }
 }
