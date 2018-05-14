@@ -19,7 +19,7 @@ namespace truyen
         private static int S, S_best, max_best, min_best;
         private static Stack<int> max = new Stack<int>();
         private static Stack<int> min = new Stack<int>();
-
+        private static int max_word_index;
 
         private static void process()
         {
@@ -146,7 +146,7 @@ namespace truyen
             Console.WriteLine("TRY");
             TRY(0);
 
-            int max_word_index;
+            
 
             for (max_word_index = 0; max_word_index < n; max_word_index++)
             {
@@ -177,7 +177,7 @@ namespace truyen
                 if (count >= 0.8 * words.Length)
                 {
                     int chapter = Int32.Parse(dr["id"].ToString());
-                    search_result.Add( new SearchResult( FindBest(noiDung, words), chapter, min_best, S_best));
+                    search_result.Add( new SearchResult( FindBest(noiDung, words), chapter, min_best));
                     
                 }
             }
@@ -198,12 +198,12 @@ namespace truyen
         public int length { get; set; }
         
 
-        public SearchResult(String phrase, int chapter, int indexInChapter, int length)
+        public SearchResult(String phrase, int chapter, int indexInChapter)
         {
             this.phrase = phrase;
             this.chapter = chapter;
             this.indexInChapter = indexInChapter;
-            this.length = length;
+            this.length = phrase.Length;
         }
 
 
@@ -218,9 +218,9 @@ namespace truyen
             SearchResult Y = (SearchResult)y;
 
             if (X.length != Y.length)
-                return -X.length + Y.length;
+                return X.length - Y.length;
             else
-                return -X.chapter + Y.chapter;
+                return X.chapter - Y.chapter;
         }
     }
 }
