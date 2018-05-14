@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,14 +45,14 @@
             this.ds_chuong = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button_music = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.textFont = new System.Windows.Forms.ComboBox();
             this.textSize = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.den = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button_music = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -173,15 +171,13 @@
             this.list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.list.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
             this.list.Location = new System.Drawing.Point(23, 52);
             this.list.Name = "list";
             this.list.Size = new System.Drawing.Size(235, 342);
             this.list.TabIndex = 10;
             this.list.UseCompatibleStateImageBehavior = false;
             this.list.View = System.Windows.Forms.View.Details;
+            this.list.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.list_ItemSelectionChanged);
             // 
             // columnHeader1
             // 
@@ -190,6 +186,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Nội dung";
+            this.columnHeader2.Width = 300;
             // 
             // tabControl1
             // 
@@ -258,6 +255,25 @@
             this.tabPage3.Text = "Option";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button_music
+            // 
+            this.button_music.Location = new System.Drawing.Point(135, 131);
+            this.button_music.Name = "button_music";
+            this.button_music.Size = new System.Drawing.Size(75, 23);
+            this.button_music.TabIndex = 20;
+            this.button_music.Text = "Tắt nhạc";
+            this.button_music.UseVisualStyleBackColor = true;
+            this.button_music.Click += new System.EventHandler(this.button_music_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 134);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Music:";
+            // 
             // textFont
             // 
             this.textFont.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -306,25 +322,6 @@
             this.den.Text = "Tắt đèn";
             this.den.UseVisualStyleBackColor = true;
             this.den.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 134);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 16);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Music:";
-            // 
-            // button_music
-            // 
-            this.button_music.Location = new System.Drawing.Point(135, 131);
-            this.button_music.Name = "button_music";
-            this.button_music.Size = new System.Drawing.Size(75, 23);
-            this.button_music.TabIndex = 20;
-            this.button_music.Text = "Tắt nhạc";
-            this.button_music.UseVisualStyleBackColor = true;
-            this.button_music.Click += new System.EventHandler(this.button_music_Click);
             // 
             // Form1
             // 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace truyen
 {
@@ -28,10 +29,8 @@ namespace truyen
        BindingSource source;
        List<rule> luat = new List<rule>();
        List<String> chapter = new List<String>();
-        private void connect()
-        { 
-
-        } 
+       ArrayList search_result;// toàn cục
+      
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -42,10 +41,6 @@ namespace truyen
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -132,31 +127,6 @@ namespace truyen
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-    
-
-        private void list_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            //khi click vào listview thì hiển thị lên chương đó
-            var item = e.Item;
-            source.Position = Int32.Parse(item.Text)-1;
-            showrecord();
-        }
-
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
@@ -166,18 +136,27 @@ namespace truyen
 
         private void search_Click(object sender, EventArgs e)
         {
-           // int chapter=9;
+            foreach (ListViewItem item in list.Items)
+            {
+                
+                    item.Remove();
+            }
+          
             //set cho listview
-         //   list.Items.Clear();
-         //   String cau = searchBox.Text;
-           // search s = new search();
-          //  String ch = s.Search(cau, source, out chapter);
-          //  ListViewItem k = new ListViewItem(chapter.ToString());
-          //  ListViewItem.ListViewSubItem k1 = new ListViewItem.ListViewSubItem(k, "20.000 sinh viên");
-          //  k.SubItems.Add(k1);
-          //  list.Items.Add(k);
+            String key = searchBox.Text;
+            search_result = new ArrayList();//đoạn này bình thường
+            search search = new search();
+            search_result = search.Search(key,source);
+            int len = search_result.Count;
+            foreach (SearchResult s in search_result)
+            {
+                
+                   ListViewItem k = new ListViewItem(s.chapter.ToString());
+                 ListViewItem.ListViewSubItem k1 = new ListViewItem.ListViewSubItem(k,s.phrase);
+                k.SubItems.Add(k1);
+                 list.Items.Add(k);
             
-
+            }
         }
 
       
@@ -286,6 +265,25 @@ namespace truyen
             mc.OpenMediaFile("thandieu.mp3");
             mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
             button_music.Text = "Tắt nhạc";
+            }
+        }
+
+        private void list_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+          
+            
+          
+            for (int i = 0; i < list.Items.Count; i++)
+            {
+                if (list.Items[i].Selected)
+                {
+                    
+                    SearchResult s = search_result[i] as SearchResult;
+                    source.Position = s.chapter;
+                    showrecord();
+                    noidung.Find(s.phrase);
+                    break;
+                }
             }
         }
 
