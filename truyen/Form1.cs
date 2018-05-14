@@ -270,21 +270,26 @@ namespace truyen
 
         private void list_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
+         
+          int i = 0; 
           
-            
-          
-            for (int i = 0; i < list.Items.Count; i++)
+            for ( i = 0; i < list.Items.Count; i++)
             {
-                if (list.Items[i].Selected)
-                {
+                if (list.Items[i].Selected) 
+                    {
+                        SearchResult s= search_result[i] as SearchResult;;
+                        source.Position = s.chapter - 1;
+                        showrecord();
                     
-                    SearchResult s = search_result[i] as SearchResult;
-                    source.Position = s.chapter;
-                    showrecord();
-                    noidung.Find(s.phrase);
+                        noidung.Select(s.indexInChapter,s.length);
+                        noidung.SelectionColor = Color.Blue;
+                       noidung.ScrollToCaret();
                     break;
-                }
+                    }
             }
+          
+        
+           
         }
 
 

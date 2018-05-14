@@ -364,7 +364,6 @@
         private System.Windows.Forms.Label so;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RichTextBox noidung;
         private System.Windows.Forms.ListView list;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -381,6 +380,7 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button button_music;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.RichTextBox noidung;
     }
 }
 
