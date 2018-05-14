@@ -144,7 +144,7 @@ namespace truyen
           
             //set cho listview
             String key = searchBox.Text;
-            search_result = new ArrayList();//đoạn này bình thường
+           // search_result = new ArrayList();//đoạn này bình thường
             search search = new search();
             search_result = search.Search(key,source);
             int len = search_result.Count;
