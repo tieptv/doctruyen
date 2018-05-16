@@ -96,18 +96,21 @@ namespace truyen
 
         }
 
-        private static String FindBest(String noiDung, String[] words)
+        private static String FindBest(String noiDung, String[] key_words)
         {
-            n = words.Length;
+            n = key_words.Length;
             w = new ArrayList[n];
+            String[] words = new String[n];
+            Array.Copy(key_words, words, n);
 
             for (int i = 0; i < n; i++)
             {
                 int index = -1;
-                if (noiDung.Contains(words[i]))
+                if (noiDung.IndexOf(key_words[i], StringComparison.CurrentCultureIgnoreCase) != -1)
                 {
                     w[i] = new ArrayList();
-                    while ((index = noiDung.IndexOf(words[i], index + 1)) != -1)
+
+                    while ((index = noiDung.IndexOf(words[i], index + 1, StringComparison.CurrentCultureIgnoreCase)) != -1)
                     {
                         w[i].Add(index);
                     }
@@ -143,7 +146,7 @@ namespace truyen
             S_best = max_best - min_best;
 
 
-            Console.WriteLine("TRY");
+           // Console.WriteLine("TRY");
             TRY(0);
 
 
@@ -161,24 +164,33 @@ namespace truyen
         public ArrayList Search(String key, BindingSource source)
         {
             string[] separators = { ",", ".", "!", "?", ";", ":", " ", "\t", "\n", "\r", "-" };
-            String[] words = key.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            String[] key_words = key.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             ArrayList search_result = new ArrayList();
             foreach (DataRow dr in source)
             {
                 String noiDung = dr["noidung"].ToString();
+
                 int count = 0;
-                foreach (String word in words)
+                int miss = 0;
+
+                foreach (String word in key_words)
                 {
-                    if (noiDung.Contains(word))
+                    if (noiDung.IndexOf(word, StringComparison.CurrentCultureIgnoreCase) != -1)
                     {
                         count++;
                     }
+                    else
+                    {
+                        miss++;
+                        if (miss > n * 80 / 100)
+                            break;
+                    }
                 }
-                int match = count * 100 / words.Length;
+                int match = count * 100 / key_words.Length;
                 if (match >= 80)
                 {
                     int chapter = 1;
-                    String sr = FindBest(noiDung, words);
+                    String sr = FindBest(noiDung, key_words);
                     bool orderly = true;
                     for (int i = 1; i < B.Length; i++)
                     {
@@ -241,4 +253,5 @@ namespace truyen
                 return X.chapter - Y.chapter;
         }
     }
+
 }
