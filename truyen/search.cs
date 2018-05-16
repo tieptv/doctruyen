@@ -146,7 +146,7 @@ namespace truyen
             Console.WriteLine("TRY");
             TRY(0);
 
-            
+
 
             for (max_word_index = 0; max_word_index < n; max_word_index++)
             {
@@ -174,11 +174,22 @@ namespace truyen
                         count++;
                     }
                 }
-                if (count >= 0.8 * words.Length)
+                int match = count * 100 / words.Length;
+                if (match >= 80)
                 {
-                    int chapter = Int32.Parse(dr["id"].ToString());
-                    search_result.Add( new SearchResult( FindBest(noiDung, words), chapter, min_best));
-                    
+                    int chapter = 1;
+                    String sr = FindBest(noiDung, words);
+                    bool orderly = true;
+                    for (int i = 1; i < B.Length; i++)
+                    {
+                        if ((int)w[i][B[i]] < (int)w[i - 1][B[i - 1]])
+                        {
+                            orderly = false;
+                            break;
+                        }
+                    }
+                    search_result.Add(new SearchResult(sr, chapter, min_best, match, orderly));
+
                 }
             }
 
@@ -196,18 +207,21 @@ namespace truyen
         public int chapter { get; set; }
         public int indexInChapter { get; set; }
         public int length { get; set; }
-        
+        public int match;
+        public bool orderly;
 
-        public SearchResult(String phrase, int chapter, int indexInChapter)
+        public SearchResult(String phrase, int chapter, int indexInChapter, int match, bool orderly)
         {
             this.phrase = phrase;
             this.chapter = chapter;
             this.indexInChapter = indexInChapter;
             this.length = phrase.Length;
+            this.match = match;
+            this.orderly = orderly;
         }
 
 
-        
+
     }
 
     public class SearchResultComparer : IComparer
@@ -219,6 +233,10 @@ namespace truyen
 
             if (X.length != Y.length)
                 return X.length - Y.length;
+            else if (X.match != Y.match)
+                return X.length - Y.length;
+            else if (X.orderly != Y.orderly)
+                return X.orderly ? -1 : 1;
             else
                 return X.chapter - Y.chapter;
         }
