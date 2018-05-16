@@ -106,7 +106,7 @@ namespace truyen
             for (int i = 0; i < n; i++)
             {
                 int index = -1;
-                if (noiDung.IndexOf(key_words[i], StringComparison.CurrentCultureIgnoreCase) != -1)
+                if (noiDung.IndexOf(words[i], StringComparison.CurrentCultureIgnoreCase) != -1)
                 {
                     w[i] = new ArrayList();
 
@@ -182,7 +182,7 @@ namespace truyen
                     else
                     {
                         miss++;
-                        if (miss > n * 80 / 100)
+                        if (miss * 100 / key_words.Length > 20)
                             break;
                     }
                 }
@@ -205,8 +205,8 @@ namespace truyen
                 }
             }
 
-            IComparer myComparer = new SearchResultComparer();
-            search_result.Sort(myComparer);
+            //IComparer myComparer = new SearchResultComparer();
+            search_result.Sort(new SearchResultComparer());
             return search_result;
         }
 
