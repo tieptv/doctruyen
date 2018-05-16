@@ -117,7 +117,10 @@ namespace truyen
                 }
                 else
                 {
-                    words[i] = words[n - 1];
+                    for (int j = i + 1; j < n; j++)
+                    {
+                        words[j - 1] = words[j];
+                    }
                     n--;
                     i--;
                 }
