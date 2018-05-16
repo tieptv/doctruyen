@@ -160,7 +160,7 @@ namespace truyen
 
         public ArrayList Search(String key, BindingSource source)
         {
-            string[] separators = { ",", ".", "!", "?", ";", ":", " ", "\t", "\n" };
+            string[] separators = { ",", ".", "!", "?", ";", ":", " ", "\t", "\n", "\r", "-" };
             String[] words = key.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             ArrayList search_result = new ArrayList();
             foreach (DataRow dr in source)
