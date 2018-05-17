@@ -131,17 +131,17 @@
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(98, 11);
+            this.searchBox.Location = new System.Drawing.Point(6, 11);
             this.searchBox.Multiline = true;
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(160, 35);
+            this.searchBox.Size = new System.Drawing.Size(231, 35);
             this.searchBox.TabIndex = 7;
             this.searchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(23, 11);
+            this.button3.Location = new System.Drawing.Point(243, 11);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(69, 35);
             this.button3.TabIndex = 8;
@@ -171,9 +171,9 @@
             this.list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.list.Location = new System.Drawing.Point(23, 52);
+            this.list.Location = new System.Drawing.Point(0, 52);
             this.list.Name = "list";
-            this.list.Size = new System.Drawing.Size(235, 342);
+            this.list.Size = new System.Drawing.Size(315, 355);
             this.list.TabIndex = 10;
             this.list.UseCompatibleStateImageBehavior = false;
             this.list.View = System.Windows.Forms.View.Details;
@@ -198,7 +198,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 115);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(323, 430);
+            this.tabControl1.Size = new System.Drawing.Size(322, 443);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -217,7 +217,7 @@
             this.ds_chuong.AllowDrop = true;
             this.ds_chuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ds_chuong.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ds_chuong.Font = new System.Drawing.Font("Segoe Marker", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ds_chuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ds_chuong.Location = new System.Drawing.Point(3, 6);
             this.ds_chuong.Name = "ds_chuong";
             this.ds_chuong.Size = new System.Drawing.Size(306, 396);
@@ -235,7 +235,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(315, 401);
+            this.tabPage2.Size = new System.Drawing.Size(314, 414);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Search";
             this.tabPage2.UseVisualStyleBackColor = true;
