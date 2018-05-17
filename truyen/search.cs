@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace truyen
 {
-    class search
+    public class search
     {
         private static int n;
         private static ArrayList[] w;
@@ -19,20 +19,36 @@ namespace truyen
         private static int S, S_best, max_best, min_best;
         private static Stack<int> max = new Stack<int>();
         private static Stack<int> min = new Stack<int>();
-        private static int max_word_index;
+        private static String[] separators = { " ", ",", ".", "!", "?", ";", ":", "\t", "\n", "\r", "-" };
+
+        public static int IndexOf(String source, String value, int startIndex, StringComparison comparisonType)
+        {
+            if (source.IndexOf(value, startIndex, comparisonType) == -1)
+                return -1;
+            int index;
+            foreach(String sepa in separators)
+            {
+                if ((index = source.IndexOf(value + sepa, startIndex, comparisonType)) != -1)
+                    return index;
+            }
+            return -1;
+        }
+        public static int IndexOf(String source, String value, StringComparison comparisonType)
+        {
+            if (source.IndexOf(value, comparisonType) == -1)
+                return -1;
+            int index;
+            foreach (String sepa in separators)
+            {
+                if ((index = source.IndexOf(value + sepa, comparisonType)) != -1)
+                    return index;
+            }
+            return -1;
+        }
 
         private static void process()
         {
-            //int k = 0;
-            //foreach (int i in A)
-            //{
-            //    int t = (int)w[k][i];
-            //    if (t < min)
-            //        min = t;
-            //    if (t > max)
-            //        max = t;
-            //    k++;
-            //}
+            
             S = max.Peek() - min.Peek();
             if (S < S_best)
             {
@@ -106,11 +122,11 @@ namespace truyen
             for (int i = 0; i < n; i++)
             {
                 int index = -1;
-                if (noiDung.IndexOf(words[i], StringComparison.CurrentCultureIgnoreCase) != -1)
+                if (IndexOf(noiDung, words[i], StringComparison.CurrentCultureIgnoreCase) != -1)
                 {
                     w[i] = new ArrayList();
 
-                    while ((index = noiDung.IndexOf(words[i], index + 1, StringComparison.CurrentCultureIgnoreCase)) != -1)
+                    while ((index = IndexOf(noiDung, words[i], index + 1, StringComparison.CurrentCultureIgnoreCase)) != -1)
                     {
                         w[i].Add(index);
                     }
@@ -152,21 +168,20 @@ namespace truyen
            // Console.WriteLine("TRY");
             TRY(0);
 
+            int max_word_index;
 
-
-            for (max_word_index = 0; max_word_index < n; max_word_index++)
+            for (max_word_index = 0; max_word_index < n - 1; max_word_index++)
             {
                 if (w[max_word_index].IndexOf(max_best) != -1)
                     break;
             }
 
-            return (noiDung.Substring(min_best, S_best) + words[max_word_index]);
+            return (noiDung.Substring(min_best, S_best + words[max_word_index].Length));
 
         }
 
-        public ArrayList Search(String key, BindingSource source)
+        public static ArrayList Search(String key, BindingSource source)
         {
-            string[] separators = { ",", ".", "!", "?", ";", ":", " ", "\t", "\n", "\r", "-" };
             String[] key_words = key.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             ArrayList search_result = new ArrayList();
             foreach (DataRow dr in source)
@@ -178,7 +193,7 @@ namespace truyen
 
                 foreach (String word in key_words)
                 {
-                    if (noiDung.IndexOf(word, StringComparison.CurrentCultureIgnoreCase) != -1)
+                    if (IndexOf(noiDung, word, StringComparison.CurrentCultureIgnoreCase) != -1)
                     {
                         count++;
                     }
@@ -192,7 +207,7 @@ namespace truyen
                 int match = count * 100 / key_words.Length;
                 if (match >= 80)
                 {
-                    int chapter = 1;
+                    int chapter = Int32.Parse(dr["id"].ToString());
                     String sr = FindBest(noiDung, key_words);
                     bool orderly = true;
                     for (int i = 1; i < B.Length; i++)
@@ -257,4 +272,6 @@ namespace truyen
         }
     }
 
+
+    
 }

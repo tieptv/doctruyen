@@ -136,25 +136,24 @@ namespace truyen
 
         private void search_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in list.Items)
-            {
-                
-                    item.Remove();
-            }
+            //foreach (ListViewItem item in list.Items)
+            //{
+
+            //        item.Remove();
+            //}
+            list.Items.Clear();
           
             //set cho listview
             String key = searchBox.Text;
-           // search_result = new ArrayList();//đoạn này bình thường
-            search search = new search();
+           
             search_result = search.Search(key,source);
             int len = search_result.Count;
             foreach (SearchResult s in search_result)
             {
-                
-                   ListViewItem k = new ListViewItem(s.chapter.ToString());
-                 ListViewItem.ListViewSubItem k1 = new ListViewItem.ListViewSubItem(k,s.phrase);
+                ListViewItem k = new ListViewItem(s.chapter.ToString());
+                ListViewItem.ListViewSubItem k1 = new ListViewItem.ListViewSubItem(k,s.phrase);
                 k.SubItems.Add(k1);
-                 list.Items.Add(k);
+                list.Items.Add(k);
             
             }
         }
