@@ -279,11 +279,12 @@ namespace truyen
                     {
                         SearchResult s= search_result[i] as SearchResult;;
                         source.Position = s.chapter - 1;
-                        showrecord();
+                        
+                       showrecord();
                     
-                        noidung.Select(s.indexInChapter,s.length);
-                        noidung.SelectionColor = Color.Blue;
-                       noidung.ScrollToCaret();
+                       noidung.Select(s.indexInChapter,s.length);
+                       noidung.SelectionColor = Color.Blue;
+                      noidung.ScrollToCaret();
                     break;
                     }
             }
