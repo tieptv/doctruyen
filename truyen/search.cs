@@ -49,16 +49,22 @@ namespace truyen
         //    không tìm được, 0 nếu value là System.String.Empty
         public static int IndexOf(String source, String value, int startIndex, StringComparison comparisonType)
         {
+            return source.IndexOf(value, startIndex, comparisonType);
+
             int index = source.IndexOf(value, startIndex, comparisonType);
 
-            if (index == -1 || index == 0)
-                return index;
+            if (index == -1)
+                return -1;
 
             foreach (String sepa in separators)
             {
                 if ((index = source.IndexOf(value + sepa, startIndex, comparisonType)) != -1)
                     return index;
             }
+
+            //if (!(Char.IsLetter(source, index + value.Length)))
+            //    return index;
+
             return -1;
         }
 
@@ -81,17 +87,23 @@ namespace truyen
         //    không tìm được, 0 nếu value là System.String.Empty
         public static int IndexOf(String source, String value, StringComparison comparisonType)
         {
-            int index = source.IndexOf(value, comparisonType);
+            return IndexOf(source, value, 0, comparisonType);
 
-            if (index == -1 || index == 0)
-                return index;
-            
-            foreach (String sepa in separators)
-            {
-                if ((index = source.IndexOf(value + sepa, comparisonType)) != -1)
-                    return index;
-            }
-            return -1;
+            //int index = source.IndexOf(value, comparisonType);
+
+            //if (index == -1 || index == 0)
+            //    return index;
+
+            ////foreach (String sepa in separators)
+            ////{
+            ////    if ((index = source.IndexOf(value + sepa, comparisonType)) != -1)
+            ////        return index;
+            ////}
+
+            //if (!Char.IsLetter(source, index + value.Length))
+            //    return index;
+
+            //return -1;
         }
 
         //Summary:
@@ -193,19 +205,24 @@ namespace truyen
             //Duyệt qua từng từ khóa
             for (int i = 0; i < n; i++)
             {
-                int index = -1;
+                int index = noiDung.IndexOf(words[i], StringComparison.CurrentCultureIgnoreCase);
 
-                if (IndexOf(noiDung, words[i], StringComparison.CurrentCultureIgnoreCase) != -1)
+                if ( index != -1 )
                 {
                     //Từ khóa có trong chương này
-
+                    //Tìm tât cả vị trí, thêm vào w
                     w[i] = new ArrayList();
 
-                    //Tìm tât cả vị trí, thêm vào w
-                    while ((index = IndexOf(noiDung, words[i], index + 1, StringComparison.CurrentCultureIgnoreCase)) != -1)
+                    do
                     {
                         w[i].Add(index);
-                    }
+                        index = noiDung.IndexOf(words[i], index + 1, StringComparison.CurrentCultureIgnoreCase);
+                    } while (index != -1);
+                    
+                    //while ((index = IndexOf(noiDung, words[i], index + 1, StringComparison.CurrentCultureIgnoreCase)) != -1)
+                    //{
+                    //    w[i].Add(index);
+                    //}
                 }
                 else
                 {
@@ -298,7 +315,7 @@ namespace truyen
                 foreach (String word in key_words) //Duyệt các từ khóa
                 {
                     //Nếu tìm thấy từ kóa trong chương
-                    if (IndexOf(noiDung, word, StringComparison.CurrentCultureIgnoreCase) != -1)
+                    if (noiDung.IndexOf(word, StringComparison.CurrentCultureIgnoreCase) != -1)
                     {
                         count++;
                     }
