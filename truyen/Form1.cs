@@ -148,6 +148,7 @@ namespace truyen
            
             search_result = search.Search(key,source);
             int len = search_result.Count;
+            if(len>0){
             foreach (SearchResult s in search_result)
             {
                 ListViewItem k = new ListViewItem(s.chapter.ToString());
@@ -156,6 +157,14 @@ namespace truyen
                 list.Items.Add(k);
             
             }
+            }
+            else {
+                ListViewItem k = new ListViewItem("Error:");
+                ListViewItem.ListViewSubItem k1 = new ListViewItem.ListViewSubItem(k, "Không tìm thấy kết quả");
+                k.SubItems.Add(k1);
+                list.Items.Add(k);
+            }
+            
         }
 
       
@@ -280,9 +289,9 @@ namespace truyen
                         source.Position = s.chapter - 1;
                         
                        showrecord();
-                    
+                   //    noidung.Find(s.phrase);
                        noidung.Select(s.indexInChapter,s.length);
-                       noidung.SelectionColor = Color.Blue;
+                      noidung.SelectionColor = Color.Blue;
                       noidung.ScrollToCaret();
                     break;
                     }
@@ -291,6 +300,35 @@ namespace truyen
         
            
         }
+
+        private void searchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter){
+              
+                   search_Click(sender,e);
+                   
+            }
+                
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            trangdau trang1 = new trangdau();
+            this.Hide();
+            trang1.Show();
+        }
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            float fsize = 14;//Kích thước mặc định
+            string fname = "Segoe UI";//Font thước mặc định
+            Font f = new Font(new FontFamily(fname), fsize);
+            noidung.Font = f;
+          
+
+        }
+
+      
 
 
 

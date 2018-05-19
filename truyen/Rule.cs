@@ -241,32 +241,33 @@ namespace truyen
     // q luôn bao giờ cũng đi với âm đệm u để thành qu; 
     // c ko đứng trước các nguyên âm: i, e, ê.
     // k luôn đứng trước các nguyên âm: i, e, ê.
-    class ruleQKC : rule
+    class ruleKC : rule
     {
         public override bool check(String str)
         {
             if (!String.IsNullOrEmpty(str))
             {
-                if ((str[0] == 'q') && (str[1] != 'u'))
-                    return false;
-
-                Char[] nguyenAm = { 'i', 'í', 'ì', 'ỉ', 'ĩ', 'ị', 'e', 'è', 'é', 'ẻ', 'ẽ', 'ẹ', 'ê', 'ề', 'ế', 'ể', 'ễ', 'ệ', 'y','ỳ','ý','ỷ','ỹ','ỵ' };
-
-                if (str[0] == 'c')
-                    foreach (var s in nguyenAm)
-                        if (str[1] == s)
-                            return false;
-
-                if (str[0] == 'k')
+                if (str.Length >= 2)
                 {
-                    foreach (var s in nguyenAm)
-                        if (str[1] == s)
-                            return true;
-                    if (str[1] == 'h')
-                        return true;
-                    return false;
-                }
+                    Char[] nguyenAm = { 'i', 'í', 'ì', 'ỉ', 'ĩ', 'ị', 'e', 'è', 'é', 'ẻ', 'ẽ', 'ẹ', 'ê', 'ề', 'ế', 'ể', 'ễ', 'ệ', 'y', 'ỳ', 'ý', 'ỷ', 'ỹ', 'ỵ' };
 
+                    if (str[0] == 'c')
+                        foreach (var s in nguyenAm)
+                            if (str[1] == s)
+                                return false;
+
+                    if (str[0] == 'k')
+                    {
+                        foreach (var s in nguyenAm)
+                            if (str[1] == s)
+                                return true;
+                        if (str[1] == 'h')
+                            return true;
+                        return false;
+                    }
+
+                    return true;
+                }
                 return true;
             }
             return false;
@@ -304,6 +305,23 @@ namespace truyen
             return false;
         }
     }
+    class ruleQ : rule
+    {
+        public override bool check(String str)
+        {
+            if (!String.IsNullOrEmpty(str))
+            {
+                if (str.Length >= 3)
+                {
+                    if ((str[0] == 'q') && (str[1] != 'u'))
+                        return false;
+                }
+                return true;
+
+            }
+            return false;
+        }
+    }
 
 
  class Luat{
@@ -316,9 +334,10 @@ namespace truyen
          ruleGiR r4 = new ruleGiR();
          ruleN r5 = new ruleN();
          ruleNgNgh r6 = new ruleNgNgh();
-         ruleQKC r7 = new ruleQKC();
+         ruleKC r7 = new ruleKC();
          ruleS r8 = new ruleS();
          ruleTr r9 = new ruleTr();
+         ruleQ r10 = new ruleQ();
          t.Add(r1);
          t.Add(r2);
          t.Add(r3);
@@ -328,6 +347,7 @@ namespace truyen
          t.Add(r7);
          t.Add(r8);
          t.Add(r9);
+         t.Add(r10);
          return t;
      }
      public List<String> checkLuat(String noidung, List<rule> t)
@@ -339,7 +359,7 @@ namespace truyen
 
          for (int j = 0; j < len; j++)
          {
-             for (int i = 0; i < 9; i++) if (t[i].check(words[j]) == false)
+             for (int i = 0; i < 10; i++) if (t[i].check(words[j]) == false)
                  {
                      Console.WriteLine(i);
                      wrong.Add(words[j]);

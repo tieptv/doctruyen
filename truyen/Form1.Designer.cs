@@ -52,7 +52,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.den = new System.Windows.Forms.Button();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button4 = new System.Windows.Forms.Button();
+            this.reset = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -62,7 +63,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(907, 27);
+            this.button1.Location = new System.Drawing.Point(954, 77);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 32);
             this.button1.TabIndex = 0;
@@ -72,9 +73,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(88, 24);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(830, 77);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 35);
+            this.button2.Size = new System.Drawing.Size(96, 32);
             this.button2.TabIndex = 1;
             this.button2.Text = "PREV";
             this.button2.UseVisualStyleBackColor = true;
@@ -111,7 +113,7 @@
             this.chuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chuong.AutoSize = true;
             this.chuong.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chuong.Location = new System.Drawing.Point(559, 65);
+            this.chuong.Location = new System.Drawing.Point(531, 64);
             this.chuong.Name = "chuong";
             this.chuong.Size = new System.Drawing.Size(99, 22);
             this.chuong.TabIndex = 5;
@@ -123,7 +125,7 @@
             this.so.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.so.AutoSize = true;
             this.so.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.so.Location = new System.Drawing.Point(513, 65);
+            this.so.Location = new System.Drawing.Point(474, 64);
             this.so.Name = "so";
             this.so.Size = new System.Drawing.Size(28, 21);
             this.so.TabIndex = 6;
@@ -137,6 +139,7 @@
             this.searchBox.Size = new System.Drawing.Size(231, 35);
             this.searchBox.TabIndex = 7;
             this.searchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBox_KeyDown);
             // 
             // button3
             // 
@@ -207,7 +210,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(315, 401);
+            this.tabPage1.Size = new System.Drawing.Size(314, 414);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Danh sách chương";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -242,6 +245,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.reset);
             this.tabPage3.Controls.Add(this.button_music);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.textFont);
@@ -250,7 +254,7 @@
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(315, 401);
+            this.tabPage3.Size = new System.Drawing.Size(314, 414);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Option";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -315,13 +319,33 @@
             // den
             // 
             this.den.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.den.Location = new System.Drawing.Point(12, 26);
+            this.den.Location = new System.Drawing.Point(16, 77);
             this.den.Name = "den";
-            this.den.Size = new System.Drawing.Size(45, 36);
+            this.den.Size = new System.Drawing.Size(82, 36);
             this.den.TabIndex = 13;
             this.den.Text = "Tắt đèn";
             this.den.UseVisualStyleBackColor = true;
             this.den.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(16, 13);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(82, 41);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Quay lại";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // reset
+            // 
+            this.reset.Location = new System.Drawing.Point(135, 191);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(75, 23);
+            this.reset.TabIndex = 21;
+            this.reset.Text = "Reset";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // Form1
             // 
@@ -329,6 +353,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Aqua;
             this.ClientSize = new System.Drawing.Size(1062, 570);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.den);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.noidung);
@@ -377,10 +402,11 @@
         private System.Windows.Forms.ComboBox textSize;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button button_music;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.RichTextBox noidung;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button reset;
     }
 }
 
