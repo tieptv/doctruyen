@@ -323,12 +323,277 @@ namespace truyen
         }
     }
 
+    class official : rule {
+        public static string RemoveUnicode(string text)
+        {
+            string[] arr1 = new string[] { "á", "à", "ả", "ã", "ạ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ",  
+    "đ",  
+    "é","è","ẻ","ẽ","ẹ","ê","ế","ề","ể","ễ","ệ",  
+    "í","ì","ỉ","ĩ","ị",  
+    "ó","ò","ỏ","õ","ọ","ô","ố","ồ","ổ","ỗ","ộ","ơ","ớ","ờ","ở","ỡ","ợ",  
+    "ú","ù","ủ","ũ","ụ","ư","ứ","ừ","ử","ữ","ự",  
+    "ý","ỳ","ỷ","ỹ","ỵ",};
+            string[] arr2 = new string[] { "a", "a", "a", "a", "a", "â", "â", "â", "â", "â", "â", "ă", "ă", "ă", "ă", "ă", "ă",  
+    "d",  
+    "e","e","e","e","e","ê","ê","ê","ê","ê","ê",  
+    "i","i","i","i","i",  
+    "o","o","o","o","o","ô","ô","ô","ô","ô","ô","ơ","ơ","ơ","ơ","ơ","ơ",  
+    "u","u","u","u","u","ư","ư","ư","ư","ư","ư",  
+    "y","y","y","y","y",};
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                text = text.Replace(arr1[i], arr2[i]);
+                text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
+            }
+            return text.ToLower();
+        }
+        public override bool check(string x)
+        {
+            String k = RemoveUnicode(x);
+            String nguyen1 = "";
+            String phu1 = "";
+            String phu2 = "";
+            int len = k.Length;
+            String nguyenam = "aăâeêyoôơiuư";
+            String phuam = "bcdđghklmnpqrstvx";
+            for (int i = 0; i < len; i++)
+            {
+                if ((nguyenam.Contains(k[i].ToString()) == true) && String.Compare(phu2, "") != 0) return false;
+                if ((phuam.Contains(k[i].ToString()) == true) && String.Compare(nguyen1, "") != 0) phu2 += k[i].ToString();
+                else if ((nguyenam.Contains(k[i].ToString()) == true))
+                {
+                    if (i - 1 >= 0)
+                    {
+                        if ((k[i].ToString() == "i") && (k[i - 1].ToString() == "g"))
+                        {
+                            phu1 += "i";
+                            continue;
+                        }
+                    }
+                    nguyen1 += k[i].ToString();
+                }
+                else if (phuam.Contains(k[i].ToString()) == true) phu1 += k[i].ToString();
+            }
+            if (String.Compare(nguyen1, "") == 0){
+                if (phu1 != "gi") return false;
+                else return true;
+                }
+           
+            if (String.Compare(phu1, "") == 0) phu1 += "*";
+            if (String.Compare(phu2, "") == 0) phu2 += "*";
+          
+
+            String[] nguyen_am = { "a",
+"ă",
+"â",
+"e",
+"ê",
+"i",
+"y",
+"o",
+"ô",
+"ơ",
+"u",
+"ư",
+"ai",
+"ao",
+"au",
+"âu",
+"ay",
+"ây",
+"eo",
+"êu",
+"ia",
+"iê",
+"yê",
+"iu",
+"oa",
+"oă",
+"oe",
+"oi",
+"ôi",
+"ơi",
+"oo",
+"ua",
+"uă",
+"uâ",
+"ưa",
+"uê",
+"ui",
+"ưi",
+"uô",
+"uơ",
+"ươ",
+"ưu",
+"uy",
+"iêu",
+"yêu",
+"oai",
+"oao",
+"oay",
+"oeo",
+"uao",
+"uây",
+"uôi",
+"ươi",
+"ươu",
+"uya",
+"uyê",
+"uyu",
+};
+            String[] phu_am_truoc = {" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" c p q ng g ",
+" c p q ng g ",
+"c p q ng g gi ",
+ " b c d đ g n p q r v x th tr ch kh ph gh nh ng ngh ",
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p ngh gh ",
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" c p q ng g ",
+" c p q ng g ",
+" c p q ng g gi ",
+" c p q ng g gi ",
+" j ",
+" c p q ng g gi ",
+" k p q ngh gh s n tr r gi ",
+" k p q ngh gh s tr ",
+" k p q ngh gh s n tr r gi ",
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+"  k p q ngh gh " ,
+" k p ngh gh ",
+" k p ngh gh ",
+" k p ngh gh s n ",
+" k p q ngh gh " ,
+" k p ngh gh s tr r gi ",
+" k p ngh gh ",
+" k p q ngh gh " ,
+" k p ngh gh ",
+" b c d đ g k l m n p r s t v x tr ch kh ph gh nh ng ",
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p ngh gh n r gi ",
+" c p q ng g gi ",
+"   " ,
+" k p q ngh gh " ,
+"  k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p ngh gh ",
+" k p ngh gh ",
+" k p ngh gh ",
+" k p q ngh gh " ,
+" k p q ngh gh " ,
+" k p ngh gh ",
+" k p ngh gh ",
+" k p ngh gh "
+ };
+            String[] phu_am_sau = {
+                              " c m n p t ch nh ng * ",
+" c m n p t ng ",
+" c m n p t ng ",
+" c m n p t ng * ",
+" m n p t ch nh * ",
+" m n p t ch nh * ",
+" * ",
+" c m n p t ng * ",
+" c m n p t ng * ",
+" m n p t * ",
+" c m n p t ng * ",
+" c m t ng * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" c m n p t ng ",
+" m n t ",
+" * ",
+" c m n t ch nh ng * ",
+" c m n p t ng ch ",
+" c m n p t * ",
+" * ",
+" * ",
+" * ",
+" c m n p t ch nh ng ",
+" c n nh ng * ",
+" n p t ng ",
+" t ng ",
+" * ",
+" c m n p t ch nh ng * ",
+" * ",
+" * ",
+" c m n t ng ",
+" * ",
+" c m n p t ng ",
+" * ",
+" p t ch nh * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" * ",
+" n t ",
+" * "
+};
+
+            Console.WriteLine(nguyen_am.Length + " " + phu_am_truoc.Length + " " + phu_am_sau.Length);
+            int len_nguyen = nguyen_am.Length;
+            int j;
+            for (j = 0; j < len_nguyen; j++)
+            {
+                if (String.Compare(nguyen1, nguyen_am[j]) == 0)
+                {
+
+                    if ((phu_am_truoc[j].Contains(" " + phu1 + " ") == false) && (phu_am_sau[j].Contains(" " + phu2 + " ") == true))
+                        return true;
+                    else
+                        return false;
+                    break;
+
+                }
+
+
+            }
+            return false;
+        }
+    
+    
+    
+    
+    }
+
 
  class Luat{
      public List<rule> add()
      {
          List<rule> t = new List<rule>();
-         rule1 r1 = new rule1();
+         official off = new official();
+         t.Add(off);
+
+       /*  rule1 r1 = new rule1();
          rule2 r2 = new rule2();
          rule3 r3 = new rule3();
          ruleGiR r4 = new ruleGiR();
@@ -347,7 +612,7 @@ namespace truyen
          t.Add(r7);
          t.Add(r8);
          t.Add(r9);
-         t.Add(r10);
+         t.Add(r10);*/
          return t;
      }
      public List<String> checkLuat(String noidung, List<rule> t)
@@ -359,10 +624,10 @@ namespace truyen
 
          for (int j = 0; j < len; j++)
          {
-             for (int i = 0; i < 10; i++) if (t[i].check(words[j]) == false)
+             for (int i = 0; i < 1; i++) if (t[i].check(words[j]) == false)
                  {
-                     Console.WriteLine(i);
-                     wrong.Add(words[j]);
+                   //  Console.WriteLine(i);
+                     wrong.Add(" "+words[j]+" ");
                      break;
 
                  }
