@@ -42,9 +42,9 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ds_chuong = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.reset = new System.Windows.Forms.Button();
             this.button_music = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textFont = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.den = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.reset = new System.Windows.Forms.Button();
+            this.ds_chuong = new System.Windows.Forms.ListBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -215,21 +216,6 @@
             this.tabPage1.Text = "Danh sách chương";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ds_chuong
-            // 
-            this.ds_chuong.AllowDrop = true;
-            this.ds_chuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ds_chuong.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ds_chuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ds_chuong.Location = new System.Drawing.Point(3, 6);
-            this.ds_chuong.Name = "ds_chuong";
-            this.ds_chuong.Size = new System.Drawing.Size(306, 396);
-            this.ds_chuong.TabIndex = 13;
-            this.ds_chuong.UseCompatibleStateImageBehavior = false;
-            this.ds_chuong.View = System.Windows.Forms.View.List;
-            this.ds_chuong.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.ds_chuong_ItemSelectionChanged);
-            this.ds_chuong.SelectedIndexChanged += new System.EventHandler(this.ds_chuong_SelectedIndexChanged);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.list);
@@ -258,6 +244,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Option";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // reset
+            // 
+            this.reset.Location = new System.Drawing.Point(135, 191);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(75, 23);
+            this.reset.TabIndex = 21;
+            this.reset.Text = "Reset";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // button_music
             // 
@@ -337,22 +333,36 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // reset
+            // ds_chuong
             // 
-            this.reset.Location = new System.Drawing.Point(135, 191);
-            this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(75, 23);
-            this.reset.TabIndex = 21;
-            this.reset.Text = "Reset";
-            this.reset.UseVisualStyleBackColor = true;
-            this.reset.Click += new System.EventHandler(this.reset_Click);
+            this.ds_chuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ds_chuong.FormattingEnabled = true;
+            this.ds_chuong.HorizontalScrollbar = true;
+            this.ds_chuong.ItemHeight = 16;
+            this.ds_chuong.Location = new System.Drawing.Point(6, 6);
+            this.ds_chuong.Name = "ds_chuong";
+            this.ds_chuong.Size = new System.Drawing.Size(305, 404);
+            this.ds_chuong.TabIndex = 0;
+            this.ds_chuong.SelectedIndexChanged += new System.EventHandler(this.ds_chuong_SelectedIndexChanged);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(104, 77);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(136, 36);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Kiểm Tra Chính Tả";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Aqua;
             this.ClientSize = new System.Drawing.Size(1062, 570);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.den);
             this.Controls.Add(this.tabControl1);
@@ -365,6 +375,7 @@
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -396,7 +407,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ListView ds_chuong;
         private System.Windows.Forms.Button den;
         private System.Windows.Forms.ComboBox textFont;
         private System.Windows.Forms.ComboBox textSize;
@@ -407,6 +417,8 @@
         public System.Windows.Forms.RichTextBox noidung;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button reset;
+        private System.Windows.Forms.ListBox ds_chuong;
+        private System.Windows.Forms.Button button5;
     }
 }
 

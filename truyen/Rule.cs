@@ -369,6 +369,11 @@ namespace truyen
                             phu1 += "i";
                             continue;
                         }
+                        if ((k[i].ToString() == "u") && (k[i - 1].ToString() == "q"))
+                        {
+                            phu1 += "u";
+                            continue;
+                        }
                     }
                     nguyen1 += k[i].ToString();
                 }
@@ -465,7 +470,7 @@ namespace truyen
 " c p q ng g gi ",
 " j ",
 " c p q ng g gi ",
-" k p q ngh gh s n tr r gi ",
+" k p q ngh gh tr r gi ",
 " k p q ngh gh s tr ",
 " k p q ngh gh s n tr r gi ",
 " k p q ngh gh " ,
@@ -531,9 +536,9 @@ namespace truyen
 " * ",
 " * ",
 " c m n p t ch nh ng ",
-" c n nh ng * ",
+" c n nh ng * y i ",
 " n p t ng ",
-" t ng ",
+" t ng n ",
 " * ",
 " c m n p t ch nh ng * ",
 " * ",
@@ -571,7 +576,7 @@ namespace truyen
                         return true;
                     else
                         return false;
-                    break;
+                    
 
                 }
 

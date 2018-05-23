@@ -45,6 +45,7 @@ namespace truyen
         private void button2_Click(object sender, EventArgs e)
         {
             source.MovePrevious();
+            ds_chuong.SelectedIndex = source.Position;
             noidung.SelectionStart = 0;
             noidung.ScrollToCaret();
             showrecord();
@@ -54,6 +55,7 @@ namespace truyen
         private void button1_Click(object sender, EventArgs e)
         {
             source.MoveNext();
+            ds_chuong.SelectedIndex = source.Position;
             noidung.SelectionStart = 0;
             noidung.ScrollToCaret();
             showrecord();
@@ -98,16 +100,16 @@ namespace truyen
         
         }
         private void showrecord(){
-        Luat l = new Luat();
+   
         DataRow currentRow=(DataRow)source.Current;
         noidung.Text=currentRow["noidung"].ToString();
-        List<String> words = l.checkLuat(noidung.Text, luat);
-       foreach(String w in words)changeColor(noidung,w);
+       
        chuong.Text=currentRow["ten"].ToString();
        so.Text=currentRow["id"].ToString();
         }
         private void changeColor(RichTextBox ketqua, string sai)
         {
+            
             int pos = ketqua.SelectionStart;
             string s = ketqua.Text;
             for (int ix = 0; ; )
@@ -116,7 +118,7 @@ namespace truyen
                 if (jx < 0) break;
                 ketqua.SelectionStart = jx;
                 ketqua.SelectionLength = sai.Length;
-                ketqua.SelectionColor = Color.Red;
+                ketqua.SelectionColor = Color.Blue;
                 ix = jx + 1;
             }
             ketqua.SelectionStart = pos;
@@ -136,11 +138,7 @@ namespace truyen
 
         private void search_Click(object sender, EventArgs e)
         {
-            //foreach (ListViewItem item in list.Items)
-            //{
-
-            //        item.Remove();
-            //}
+           
             list.Items.Clear();
           
             //set cho listview
@@ -170,26 +168,8 @@ namespace truyen
       
        
 
-        private void ds_chuong_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ds_chuong_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            var item = e.Item;
-            for (int i = 0; i < ds_chuong.Items.Count; i++)
-            {
-                if (ds_chuong.Items[i].Selected)
-                {
-                    source.Position = i;
-                    showrecord();
-                    break;
-                }
-            }
-
-        }
-
+       
+   
         private void button4_Click(object sender, EventArgs e)
         {
              if(lamp==0){
@@ -328,6 +308,21 @@ namespace truyen
 
         }
 
+        private void ds_chuong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            source.Position = ds_chuong.SelectedIndex;
+            showrecord();
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Luat l = new Luat();
+             List<String> words = l.checkLuat(noidung.Text, luat);
+             foreach(String w in words)changeColor(noidung,w);
+        }
+
+       
       
 
 
