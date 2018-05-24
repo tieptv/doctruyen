@@ -74,10 +74,11 @@ namespace truyen
                 textFont.Items.Add(family.Name.ToString());
             }
             //hoàn tất set dữ liệu
+            label1.Text = trangdau.story.ten_truyen;
+         
+            mc.OpenMediaFile(trangdau.story.ten+".mp3");
+          mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
            
-            mc.OpenMediaFile("thandieu.mp3");
-            mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
-          //  mc.ClosePlayer();
             Dinhdang();
             Luat ad = new Luat();
             luat=ad.add();
@@ -97,7 +98,7 @@ namespace truyen
          foreach (String chap in chapter) ds_chuong.Items.Add(chap);
 
          showrecord();
-        
+        // mc.ClosePlayer();
         }
         private void showrecord(){
    
@@ -245,16 +246,17 @@ namespace truyen
 
         private void button_music_Click(object sender, EventArgs e)
         {
-            if (button_music.Text.Equals("Tắt nhạc"))
-            {  mc.ClosePlayer();
-            button_music.Text = "Bật nhạc";
-            }
-            else {
-            mc.OpenMediaFile("thandieu.mp3");
-            mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
-            button_music.Text = "Tắt nhạc";
-            }
+          //  if (button_music.Text.Equals("Tắt nhạc"))
+        //    {  mc.ClosePlayer();
+        //    button_music.Text = "Bật nhạc";
+        //    }
+        //    else {
+         //   mc.OpenMediaFile("thandieu.mp3");
+         //   mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
+          //  button_music.Text = "Tắt nhạc";
+          //  }
         }
+       
 
         private void list_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -293,6 +295,7 @@ namespace truyen
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            mc.ClosePlayer();
             trangdau trang1 = new trangdau();
             this.Hide();
             trang1.Show();

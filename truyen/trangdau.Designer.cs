@@ -150,6 +150,7 @@
             this.linkLabel20.TabIndex = 70;
             this.linkLabel20.TabStop = true;
             this.linkLabel20.Text = "Hắc Thánh Thần Tiêu";
+            this.linkLabel20.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel20_LinkClicked);
             // 
             // linkLabel19
             // 
@@ -163,6 +164,7 @@
             this.linkLabel19.TabIndex = 69;
             this.linkLabel19.TabStop = true;
             this.linkLabel19.Text = "Bạch Mã Khiếu Tây Phong";
+            this.linkLabel19.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel19_LinkClicked);
             // 
             // linkLabel16
             // 
@@ -176,6 +178,7 @@
             this.linkLabel16.TabIndex = 66;
             this.linkLabel16.TabStop = true;
             this.linkLabel16.Text = "Uyên Ương Đao";
+            this.linkLabel16.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel16_LinkClicked);
             // 
             // linkLabel17
             // 
@@ -189,6 +192,7 @@
             this.linkLabel17.TabIndex = 67;
             this.linkLabel17.TabStop = true;
             this.linkLabel17.Text = "Võ Lâm Ngũ Bá";
+            this.linkLabel17.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel17_LinkClicked);
             // 
             // linkLabel18
             // 
@@ -202,6 +206,7 @@
             this.linkLabel18.TabIndex = 68;
             this.linkLabel18.TabStop = true;
             this.linkLabel18.Text = "Lục Mạch Thần Kiếm";
+            this.linkLabel18.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel18_LinkClicked);
             // 
             // linkLabel15
             // 
@@ -215,6 +220,7 @@
             this.linkLabel15.TabIndex = 65;
             this.linkLabel15.TabStop = true;
             this.linkLabel15.Text = "Phi Hổ Ngoại Truyện";
+            this.linkLabel15.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel15_LinkClicked);
             // 
             // linkLabel14
             // 
@@ -228,6 +234,7 @@
             this.linkLabel14.TabIndex = 64;
             this.linkLabel14.TabStop = true;
             this.linkLabel14.Text = "Thư Kiếm Ân Cừu Lục";
+            this.linkLabel14.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel14_LinkClicked);
             // 
             // linkLabel13
             // 
@@ -241,6 +248,7 @@
             this.linkLabel13.TabIndex = 63;
             this.linkLabel13.TabStop = true;
             this.linkLabel13.Text = "Cô Gái Đồ Long";
+            this.linkLabel13.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel13_LinkClicked);
             // 
             // linkLabel12
             // 
@@ -254,6 +262,7 @@
             this.linkLabel12.TabIndex = 62;
             this.linkLabel12.TabStop = true;
             this.linkLabel12.Text = "Bích Huyết Kiếm";
+            this.linkLabel12.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel12_LinkClicked);
             // 
             // linkLabel11
             // 
@@ -267,6 +276,7 @@
             this.linkLabel11.TabIndex = 61;
             this.linkLabel11.TabStop = true;
             this.linkLabel11.Text = "Song Nữ Hiệp Hồng Y";
+            this.linkLabel11.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel11_LinkClicked);
             // 
             // linkLabel10
             // 
@@ -280,6 +290,7 @@
             this.linkLabel10.TabIndex = 60;
             this.linkLabel10.TabStop = true;
             this.linkLabel10.Text = "Lộc Đỉnh Ký";
+            this.linkLabel10.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel10_LinkClicked);
             // 
             // linkLabel9
             // 
@@ -293,6 +304,7 @@
             this.linkLabel9.TabIndex = 59;
             this.linkLabel9.TabStop = true;
             this.linkLabel9.Text = "Tuyết Sơn Phi Hổ";
+            this.linkLabel9.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel9_LinkClicked);
             // 
             // linkLabel8
             // 
@@ -306,6 +318,7 @@
             this.linkLabel8.TabIndex = 58;
             this.linkLabel8.TabStop = true;
             this.linkLabel8.Text = "Hiệp Khách Hành";
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
             // 
             // linkLabel7
             // 
@@ -319,6 +332,7 @@
             this.linkLabel7.TabIndex = 57;
             this.linkLabel7.TabStop = true;
             this.linkLabel7.Text = "Liên Thanh Quyết";
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
             // 
             // linkLabel6
             // 
@@ -332,6 +346,7 @@
             this.linkLabel6.TabIndex = 56;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "Việt Nữ Kiếm";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // linkLabel5
             // 
@@ -345,6 +360,7 @@
             this.linkLabel5.TabIndex = 55;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "Ỷ Thiên Đồ Long Ký";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
             // linkLabel4
             // 
@@ -358,6 +374,7 @@
             this.linkLabel4.TabIndex = 54;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Thiên Long Bát Bộ";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // linkLabel3
             // 
@@ -371,6 +388,7 @@
             this.linkLabel3.TabIndex = 53;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Tiếu Ngạo Giang Hồ";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -384,6 +402,7 @@
             this.linkLabel2.TabIndex = 52;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Anh Hùng Xạ Điêu";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel1
             // 
@@ -397,6 +416,7 @@
             this.linkLabel1.TabIndex = 51;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Thần Điêu Đại Hiệp";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // uyen_uong_dao
             // 
