@@ -118,7 +118,7 @@ namespace truyen
                 if (jx < 0) break;
                 ketqua.SelectionStart = jx;
                 ketqua.SelectionLength = sai.Length;
-                ketqua.SelectionColor = Color.Blue;
+                ketqua.SelectionColor = Color.Red;
                 ix = jx + 1;
             }
             ketqua.SelectionStart = pos;
