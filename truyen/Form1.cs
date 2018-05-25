@@ -23,6 +23,8 @@ namespace truyen
         int zoom=1;
         int lamp = 0;
         music mc = new music();
+        music tat_den = new music();
+        music chinh_ta = new music();
        SqlConnection con;
         SqlDataAdapter adapter;
         DataTable table;
@@ -65,6 +67,7 @@ namespace truyen
 
         private void Form1_Load(object sender, EventArgs e)
         {
+          
             //set dữ liệu cho combobox
             for (int i = 8; i <= 72; i++) textSize.Items.Add(i.ToString());
             //-----------Tạo danh sách font chữ
@@ -98,7 +101,7 @@ namespace truyen
          foreach (String chap in chapter) ds_chuong.Items.Add(chap);
 
          showrecord();
-        // mc.ClosePlayer();
+       
         }
         private void showrecord(){
    
@@ -173,6 +176,7 @@ namespace truyen
    
         private void button4_Click(object sender, EventArgs e)
         {
+            mc.ClosePlayer();
              if(lamp==0){
                  this.BackColor = Color.Black;
                  this.noidung.BackColor = Color.Black;
@@ -180,23 +184,31 @@ namespace truyen
                  this.button1.Visible = false;
                  this.button2.Visible = false;
                  this.button3.Visible = false;
+                 this.button4.Visible = false;
+                 this.button5.Visible = false;
                  this.tabControl1.Visible = false;
                  this.label1.Visible = false;
                this.den.Text = "Bật đèn";
                lamp = 1;
+               tat_den.OpenMediaFile("tat_den.mp3");
+               tat_den.PlayMediaFile(false);
              }
              else {
+                 tat_den.ClosePlayer();
                  this.BackColor = Color.Aqua;
                  this.noidung.BackColor = Color.White;
                  this.noidung.ForeColor = Color.Black;
                  this.button1.Visible = true;
                  this.button2.Visible = true;
                  this.button3.Visible = true;
+                 this.button4.Visible = true;
+                 this.button5.Visible = true;
                  this.tabControl1.Visible = true;
                  this.label1.Visible = true;
                  this.den.Text = "Tắt đèn";
                  lamp = 0;
                  }
+            
              
         }
 
@@ -320,9 +332,12 @@ namespace truyen
 
         private void button5_Click(object sender, EventArgs e)
         {
+            chinh_ta.OpenMediaFile("chinh_ta.mp3");
+            chinh_ta.PlayMediaFile(false);
             Luat l = new Luat();
              List<String> words = l.checkLuat(noidung.Text, luat);
              foreach(String w in words)changeColor(noidung,w);
+         //    chinh_ta.ClosePlayer();
         }
 
        
