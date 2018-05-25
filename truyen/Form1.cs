@@ -177,6 +177,7 @@ namespace truyen
         private void button4_Click(object sender, EventArgs e)
         {
             mc.ClosePlayer();
+            chinh_ta.ClosePlayer();
              if(lamp==0){
                  this.BackColor = Color.Black;
                  this.noidung.BackColor = Color.Black;
@@ -308,6 +309,7 @@ namespace truyen
         private void button4_Click_1(object sender, EventArgs e)
         {
             mc.ClosePlayer();
+            chinh_ta.ClosePlayer();
             trangdau trang1 = new trangdau();
             this.Hide();
             trang1.Show();
@@ -332,12 +334,15 @@ namespace truyen
 
         private void button5_Click(object sender, EventArgs e)
         {
+
+            mc.ClosePlayer();
             chinh_ta.OpenMediaFile("chinh_ta.mp3");
             chinh_ta.PlayMediaFile(false);
             Luat l = new Luat();
-             List<String> words = l.checkLuat(noidung.Text, luat);
-             foreach(String w in words)changeColor(noidung,w);
-         //    chinh_ta.ClosePlayer();
+            List<String> words = l.checkLuat(noidung.Text, luat);
+            foreach(String w in words)changeColor(noidung,w);
+
+            
         }
 
        
