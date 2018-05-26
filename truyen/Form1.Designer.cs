@@ -42,6 +42,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ds_chuong = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.reset = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.den = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.ds_chuong = new System.Windows.Forms.ListBox();
             this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -102,7 +102,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(387, 64);
+            this.label2.Location = new System.Drawing.Point(363, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 22);
             this.label2.TabIndex = 3;
@@ -114,7 +114,7 @@
             this.chuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.chuong.AutoSize = true;
             this.chuong.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chuong.Location = new System.Drawing.Point(531, 64);
+            this.chuong.Location = new System.Drawing.Point(508, 63);
             this.chuong.Name = "chuong";
             this.chuong.Size = new System.Drawing.Size(99, 22);
             this.chuong.TabIndex = 5;
@@ -126,7 +126,7 @@
             this.so.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.so.AutoSize = true;
             this.so.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.so.Location = new System.Drawing.Point(474, 64);
+            this.so.Location = new System.Drawing.Point(450, 63);
             this.so.Name = "so";
             this.so.Size = new System.Drawing.Size(28, 21);
             this.so.TabIndex = 6;
@@ -215,6 +215,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Danh sách chương";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ds_chuong
+            // 
+            this.ds_chuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ds_chuong.FormattingEnabled = true;
+            this.ds_chuong.HorizontalScrollbar = true;
+            this.ds_chuong.ItemHeight = 16;
+            this.ds_chuong.Location = new System.Drawing.Point(6, 6);
+            this.ds_chuong.Name = "ds_chuong";
+            this.ds_chuong.Size = new System.Drawing.Size(305, 404);
+            this.ds_chuong.TabIndex = 0;
+            this.ds_chuong.SelectedIndexChanged += new System.EventHandler(this.ds_chuong_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -332,18 +344,6 @@
             this.button4.Text = "Quay lại";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // ds_chuong
-            // 
-            this.ds_chuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ds_chuong.FormattingEnabled = true;
-            this.ds_chuong.HorizontalScrollbar = true;
-            this.ds_chuong.ItemHeight = 16;
-            this.ds_chuong.Location = new System.Drawing.Point(6, 6);
-            this.ds_chuong.Name = "ds_chuong";
-            this.ds_chuong.Size = new System.Drawing.Size(305, 404);
-            this.ds_chuong.TabIndex = 0;
-            this.ds_chuong.SelectedIndexChanged += new System.EventHandler(this.ds_chuong_SelectedIndexChanged);
             // 
             // button5
             // 

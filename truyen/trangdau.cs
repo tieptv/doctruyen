@@ -91,7 +91,7 @@ namespace truyen
         {
             mc.ClosePlayer();
             story.ten = "loc_dinh_ky";
-            story.ten_truyen = "Lộc Đienh Ký";
+            story.ten_truyen = "Lộc Đỉnh Ký";
             Form1 form1 = new Form1();
             this.Hide();
             form1.Show();

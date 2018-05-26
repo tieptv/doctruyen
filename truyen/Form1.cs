@@ -23,8 +23,8 @@ namespace truyen
         int zoom=1;
         int lamp = 0;
         music mc = new music();
-        music tat_den = new music();
-        music chinh_ta = new music();
+       // music tat_den = new music();
+       // music chinh_ta = new music();
        SqlConnection con;
         SqlDataAdapter adapter;
         DataTable table;
@@ -80,7 +80,7 @@ namespace truyen
             label1.Text = trangdau.story.ten_truyen;
          
             mc.OpenMediaFile(trangdau.story.ten+".mp3");
-          mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
+            mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
            
             Dinhdang();
             Luat ad = new Luat();
@@ -177,7 +177,7 @@ namespace truyen
         private void button4_Click(object sender, EventArgs e)
         {
             mc.ClosePlayer();
-            chinh_ta.ClosePlayer();
+        
              if(lamp==0){
                  this.BackColor = Color.Black;
                  this.noidung.BackColor = Color.Black;
@@ -191,11 +191,11 @@ namespace truyen
                  this.label1.Visible = false;
                this.den.Text = "Bật đèn";
                lamp = 1;
-               tat_den.OpenMediaFile("tat_den.mp3");
-               tat_den.PlayMediaFile(false);
+               mc.OpenMediaFile("tat_den.mp3");
+               mc.PlayMediaFile(false);
              }
              else {
-                 tat_den.ClosePlayer();
+                 mc.ClosePlayer();
                  this.BackColor = Color.Aqua;
                  this.noidung.BackColor = Color.White;
                  this.noidung.ForeColor = Color.Black;
@@ -309,7 +309,7 @@ namespace truyen
         private void button4_Click_1(object sender, EventArgs e)
         {
             mc.ClosePlayer();
-            chinh_ta.ClosePlayer();
+           
             trangdau trang1 = new trangdau();
             this.Hide();
             trang1.Show();
@@ -336,8 +336,8 @@ namespace truyen
         {
 
             mc.ClosePlayer();
-            chinh_ta.OpenMediaFile("chinh_ta.mp3");
-            chinh_ta.PlayMediaFile(false);
+            mc.OpenMediaFile("chinh_ta.mp3");
+            mc.PlayMediaFile(false);
             Luat l = new Luat();
             List<String> words = l.checkLuat(noidung.Text, luat);
             foreach(String w in words)changeColor(noidung,w);
