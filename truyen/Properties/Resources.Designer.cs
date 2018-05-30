@@ -27,7 +27,6 @@ namespace truyen.Properties {
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
-     
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
@@ -64,35 +63,21 @@ namespace truyen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anhnen {
+            get {
+                object obj = ResourceManager.GetObject("anhnen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap thầnđiêu {
             get {
                 object obj = ResourceManager.GetObject("thầnđiêu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
-        public static System.Drawing.Image tieu_ngao_giang_ho { get; set; }
-
-        public static System.Drawing.Image bach_ma_kieu_tay_phong { get; set; }
-
-        public static System.Drawing.Image bich_huyet_kiem { get; set; }
-
-        public static System.Drawing.Image hiep_khach_hanh { get; set; }
-
-        public static System.Drawing.Image lien_thanh_quyet { get; set; }
-
-        public static System.Drawing.Image loc_dinh_ky { get; set; }
-
-        public static System.Drawing.Image luc_mach_than_kiem { get; set; }
-
-        public static System.Drawing.Image thien_long_bat_bo { get; set; }
-
-        public static System.Drawing.Image thu_kiem_an_cuu_luc { get; set; }
-
-        public static System.Drawing.Image tuyet_son_phi_ho { get; set; }
-
-        public static System.Drawing.Image viet_nu_kiem { get; set; }
-
-        public static System.Drawing.Image y_thien_do_long_ky { get; set; }
     }
 }

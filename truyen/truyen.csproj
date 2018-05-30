@@ -94,6 +94,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\anhnen.jpg" />
     <Content Include="Resources\anh_hung_xa_dieu.jpg" />
     <Content Include="Resources\bach_ma_kieu_tay_phong.jpg" />
     <Content Include="Resources\bich_huyet_kiem.jpg" />

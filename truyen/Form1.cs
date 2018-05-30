@@ -189,6 +189,10 @@ namespace truyen
                  this.button5.Visible = false;
                  this.tabControl1.Visible = false;
                  this.label1.Visible = false;
+                 this.label2.Visible = false;
+                 this.so.Visible = false;
+                 this.chuong.Visible = false;
+                 this.BackgroundImage = null;
                this.den.Text = "Bật đèn";
                lamp = 1;
                mc.OpenMediaFile("tat_den.mp3");
@@ -206,6 +210,10 @@ namespace truyen
                  this.button5.Visible = true;
                  this.tabControl1.Visible = true;
                  this.label1.Visible = true;
+                 this.label2.Visible = true;
+                 this.so.Visible = true;
+                 this.chuong.Visible = true;
+                 this.BackgroundImage = truyen.Properties.Resources.anhnen;
                  this.den.Text = "Tắt đèn";
                  lamp = 0;
                  }
