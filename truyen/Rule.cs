@@ -622,7 +622,7 @@ namespace truyen
      }
      public List<String> checkLuat(String noidung, List<rule> t)
      {
-         String[] separators = { ",", ".", "!", "?", ";", ":", " ","-","\n" };
+         String[] separators = { ",", ".", "!", "?", ";", ":", " ","-","\n","\"" };
          String[] words = noidung.Split(separators, StringSplitOptions.RemoveEmptyEntries);
          List<String> wrong = new List<String>();
          int len = words.Length;

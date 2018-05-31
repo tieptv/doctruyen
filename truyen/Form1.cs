@@ -88,17 +88,17 @@ namespace truyen
             connect cn = new connect();
             con = cn.conDB();
             String sql = "select * from " + trangdau.story.ten;
-           adapter=new SqlDataAdapter(sql,con);
-           table=new DataTable();
-           adapter.Fill(table);
+            adapter=new SqlDataAdapter(sql,con);
+            table=new DataTable();
+            adapter.Fill(table);
             source=new BindingSource();
-         foreach(DataRow tiep in table.Rows)
+            foreach(DataRow tiep in table.Rows)
              {
              source.Add(tiep);
              String ch = "Chương " + tiep["id"].ToString() + " : " + tiep["ten"];
              chapter.Add(ch);
-             }
-         foreach (String chap in chapter) ds_chuong.Items.Add(chap);
+                     }
+            foreach (String chap in chapter) ds_chuong.Items.Add(chap);
 
          showrecord();
        
@@ -265,20 +265,6 @@ namespace truyen
             }
         }
 
-        private void button_music_Click(object sender, EventArgs e)
-        {
-          //  if (button_music.Text.Equals("Tắt nhạc"))
-        //    {  mc.ClosePlayer();
-        //    button_music.Text = "Bật nhạc";
-        //    }
-        //    else {
-         //   mc.OpenMediaFile("thandieu.mp3");
-         //   mc.PlayMediaFile(false);//hết bài dừng không lặp lại, true lặp lại
-          //  button_music.Text = "Tắt nhạc";
-          //  }
-        }
-       
-
         private void list_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
          
@@ -292,8 +278,8 @@ namespace truyen
                         source.Position = s.chapter - 1;
                         
                        showrecord();
-                   //    noidung.Find(s.phrase);
-                       noidung.Select(s.indexInChapter,s.length);
+                  
+                      noidung.Select(s.indexInChapter,s.length);
                       noidung.SelectionColor = Color.Blue;
                       noidung.ScrollToCaret();
                     break;
