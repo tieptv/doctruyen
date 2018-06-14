@@ -179,6 +179,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Chương";
+            this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 

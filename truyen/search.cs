@@ -24,87 +24,10 @@ namespace truyen
         private static int[] B; //Chứa phương án tốt nhất đã tìm được, dùng cho TRY
         private static int S_best, max_best, min_best;//Tương tự S, max, min nhưng của phương án tốt nhất
 
-        private static String[] separators = { " ", ",", ".", "!", "?", ";", ":", "\t", "\n", "\r", "-" }; //Các ký tự kết thúc từ, dùng để tách từ
+        private static String[] separators = { " ", ",", ".", "!", "?", ";", ":", "\t", "\n", "\r", "-", "\"" }; //Các ký tự kết thúc từ, dùng để tách từ
 
 
-        //Summary:
-        //    Tìm chỉ số của 1 từ độc lập trong 1 xâu(từ ấy phải đứng trước dấu cách
-        //    hoặc ít nhất 1 dấu câu, khoảng trắng).
-
-        //Parameters:
-        //    source:
-        //        Nguồn tìm kiếm.
-
-        //    value:
-        //        Từ cần tìm.
-
-        //    startIndex:
-        //        Vị trí bắt đầu tìm kiếm.
-
-        //    comparisonType:
-        //        Một trong những giá trị enum của luật tìm kiếm.
-
-        //Returns:
-        //    Trả về chỉ số của value trong source nếu tìm thấy, trả về -1 nếu
-        //    không tìm được, 0 nếu value là System.String.Empty
-        public static int IndexOf(String source, String value, int startIndex, StringComparison comparisonType)
-        {
-            return source.IndexOf(value, startIndex, comparisonType);
-
-            int index = source.IndexOf(value, startIndex, comparisonType);
-
-            if (index == -1)
-                return -1;
-
-            foreach (String sepa in separators)
-            {
-                if ((index = source.IndexOf(value + sepa, startIndex, comparisonType)) != -1)
-                    return index;
-            }
-
-            //if (!(Char.IsLetter(source, index + value.Length)))
-            //    return index;
-
-            return -1;
-        }
-
-        //Summary:
-        //    Tìm chỉ số của 1 từ độc lập trong 1 xâu (từ ấy phải đứng trước dấu cách 
-        //    hoặc ít nhất 1 dấu câu, khoảng trắng).
-
-        //Parameters:
-        //    source:
-        //        Nguồn tìm kiếm.
-
-        //    value:
-        //        Từ cần tìm.
-
-        //    comparisonType:
-        //        Một trong những giá trị enum của luật tìm kiếm.
-
-        //Returns:
-        //    Trả về chỉ số của value trong source nếu tìm thấy, trả về -1 nếu
-        //    không tìm được, 0 nếu value là System.String.Empty
-        public static int IndexOf(String source, String value, StringComparison comparisonType)
-        {
-            return IndexOf(source, value, 0, comparisonType);
-
-            //int index = source.IndexOf(value, comparisonType);
-
-            //if (index == -1 || index == 0)
-            //    return index;
-
-            ////foreach (String sepa in separators)
-            ////{
-            ////    if ((index = source.IndexOf(value + sepa, comparisonType)) != -1)
-            ////        return index;
-            ////}
-
-            //if (!Char.IsLetter(source, index + value.Length))
-            //    return index;
-
-            //return -1;
-        }
+ 
 
         //Summary:
         //    Xét kết quả thử của vòng đệ quy TRY. Nếu nó ngắn hơn kết quả tốt nhất 
